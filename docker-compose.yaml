@@ -4,7 +4,12 @@ services:
   centrifugo:
     image: centrifugo/centrifugo:v5
     container_name: centrifugo
+    mem_limit: "3g"
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
     command: centrifugo -c config.json
     ulimits:
       nofile:
