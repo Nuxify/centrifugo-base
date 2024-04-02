@@ -12,6 +12,8 @@ When using Traefik, you can easily deploy using https://github.com/Nuxify/traefi
 
 ## Centrifugo Documentation
 
-Refer to official Centrifugo website: https://centrifugal.dev/docs/getting-started/quickstart
+Refer to official Centrifugo site: https://centrifugal.dev/docs/getting-started/quickstart.
+
+For server configurations, check https://centrifugal.dev/docs/server/configuration.
 
 Made with ❤️ at [Nuxify](https://nuxify.tech)
