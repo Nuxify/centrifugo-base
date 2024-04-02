@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  centrifugo:
+    image: centrifugo/centrifugo:v5
+    container_name: centrifugo
+    restart: unless-stopped
+    command: centrifugo -c config.json
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./config.json:/centrifugo/config.json
+    # remove if not needed
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.blockscout.entrypoints=http"
+      - "traefik.http.routers.blockscout.rule=Host(`push.nuxify.tech`)"
+      - "traefik.http.routers.blockscout-secure.entrypoints=https"
+      - "traefik.http.routers.blockscout-secure.rule=Host(`push.nuxify.tech`)"
+      - "traefik.http.routers.blockscout-secure.tls=true"
+      - "traefik.http.routers.blockscout-secure.tls.certresolver=http"
+      - "traefik.http.routers.blockscout-secure.service=centrifugo"
+      - "traefik.http.services.blockscout.loadbalancer.server.port=8000"
+      - "traefik.docker.network=proxy"
+
+# remove if not needed
+networks:
+  proxy:
+    external: true

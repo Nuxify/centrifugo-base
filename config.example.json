@@ -1,0 +1,10 @@
+{
+  "port": 8000,
+  "admin": true,
+  "admin_password": "password",
+  "admin_secret": "secret",
+  "token_hmac_secret_key": "my_secret",
+  "api_key": "my_api_key",
+  "allowed_origins": [],
+  "allow_subscribe_for_client": true
+}
