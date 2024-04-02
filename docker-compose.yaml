@@ -17,14 +17,14 @@ services:
     # remove if not needed
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.blockscout.entrypoints=http"
-      - "traefik.http.routers.blockscout.rule=Host(`push.nuxify.tech`)"
-      - "traefik.http.routers.blockscout-secure.entrypoints=https"
-      - "traefik.http.routers.blockscout-secure.rule=Host(`push.nuxify.tech`)"
-      - "traefik.http.routers.blockscout-secure.tls=true"
-      - "traefik.http.routers.blockscout-secure.tls.certresolver=http"
-      - "traefik.http.routers.blockscout-secure.service=centrifugo"
-      - "traefik.http.services.blockscout.loadbalancer.server.port=8000"
+      - "traefik.http.routers.centrifugo.entrypoints=http"
+      - "traefik.http.routers.centrifugo.rule=Host(`push.nuxify.tech`)"
+      - "traefik.http.routers.centrifugo-secure.entrypoints=https"
+      - "traefik.http.routers.centrifugo-secure.rule=Host(`push.nuxify.tech`)"
+      - "traefik.http.routers.centrifugo-secure.tls=true"
+      - "traefik.http.routers.centrifugo-secure.tls.certresolver=http"
+      - "traefik.http.routers.centrifugo-secure.service=centrifugo"
+      - "traefik.http.services.centrifugo.loadbalancer.server.port=8000"
       - "traefik.docker.network=proxy"
 
 # remove if not needed
