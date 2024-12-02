@@ -1,8 +1,6 @@
-version: "3.8"
-
 services:
   centrifugo:
-    image: centrifugo/centrifugo:v5
+    image: centrifugo/centrifugo:v5.4.7
     container_name: centrifugo
     mem_limit: "3g"
     restart: unless-stopped
@@ -19,7 +17,6 @@ services:
       - proxy
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./config.json:/centrifugo/config.json
     # remove if not needed
     labels:
